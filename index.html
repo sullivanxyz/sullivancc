@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Drew Sullivan</title>
+  <meta name="description" content="Resume website for a corporate digital product leader." />
+  <style>
+    :root{
+      --bg:#fafafa; --ink:#111; --ink-2:#2f2f2f; --muted:#6b6b6b;
+      --line:#e6e6e6; --tile:#f2f2f2; --maxw:1120px; --radius:16px;
+      --radius-photo:24px; --photo-w:min(68vw,260px);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; color:var(--ink); background:var(--bg)}
+    a{color:var(--ink); text-underline-offset:3px}
+    .container{max-width:var(--maxw); margin:0 auto; padding:24px}
+
+    /* HERO GRID */
+    .hero{
+      display:grid;
+      grid-template-columns:minmax(260px,380px) 1fr;
+      grid-template-rows:auto 1fr;
+      grid-template-areas:
+        "name name"
+        "photo mission";
+      column-gap:52px; row-gap:28px; align-items:stretch;
+      padding-block:32px;
+    }
+    @media (max-width:879px){
+      .hero{
+        grid-template-columns:1fr;
+        grid-template-rows:auto auto auto;
+        grid-template-areas:
+          "name"
+          "photo"
+          "mission";
+        row-gap:20px;
+      }
+    }
+
+    /* HERO AREAS */
+    .name-tag{grid-area:name; width:100%; text-align:left; margin:0 0 12px}
+    .name-tag h1{font-size:clamp(24px,3vw,32px); font-weight:800; margin:0; color:var(--ink)}
+    .name-tag p{font-size:.95rem; font-weight:600; color:var(--muted); margin:.25rem 0 0}
+
+    .photo-box{grid-area:photo; border-radius:var(--radius-photo); overflow:hidden; background:linear-gradient(140deg,#e9e9e9,#f8f8f8); height:100%}
+    .photo-box img{width:100%; height:100%; object-fit:cover; display:block}
+
+    .mission{grid-area:mission; display:flex; flex-direction:column}
+    .mission .kicker{color:var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.08em; font-size:.82rem}
+    .mission .statement{margin:.4rem 0 1rem; line-height:1.15; font-size:clamp(26px,3.2vw,40px)}
+    .mission .tagline{color:var(--ink-2); margin:.2rem 0 1.2rem; font-size:clamp(16px,2.1vw,20px)}
+    .mission .contact{display:flex; gap:14px; align-items:center; flex-wrap:wrap; margin-top:.25rem}
+
+    /* ICONS & BUTTONS */
+    .icon-btn{display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:12px; border:1px solid var(--line); background:#fff; transition:transform .1s ease, background .2s ease, border-color .2s ease; text-decoration:none}
+    .icon-btn:hover{transform:translateY(-1px); border-color:#d3d3d3; background:var(--tile)}
+    .icon-btn svg{width:22px; height:22px; fill:var(--ink)}
+    .btn{display:inline-flex; align-items:center; justify-content:center; padding:10px 14px; border-radius:12px; border:1px solid var(--ink); background:#111; color:#fff; font-weight:700; text-decoration:none}
+    .btn:hover{filter:brightness(0.96)}
+
+    /* CONTENT */
+    .content{display:flex; flex-direction:column; align-items:center; gap:24px; margin-top:18px}
+    .section-narrow{width:min(900px,100%)}
+    .card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px}
+    section h2{font-size:1rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:0 0 14px}
+
+    .timeline{position:relative; padding-left:28px; display:grid; gap:18px}
+    .timeline:before{content:""; position:absolute; left:12px; top:0; bottom:0; width:2px; background:var(--line)}
+    .t-item:before{content:""; position:absolute; left:-18px; top:.4rem; width:10px; height:10px; border-radius:50%; background:var(--ink); opacity:.7}
+    .t-year{color:var(--muted); font-weight:700; margin-right:.5rem}
+    .t-role{font-weight:700}
+    .t-org{color:var(--muted)}
+
+    .edu-list{display:grid; gap:10px}
+    .edu-item{display:flex; flex-wrap:wrap; gap:8px; align-items:baseline; padding:8px 0; border-bottom:1px dashed var(--line)}
+    .edu-item:last-child{border-bottom:none}
+    .edu-year{color:var(--muted); font-weight:700}
+    .edu-degree{font-weight:700}
+    .edu-org{color:var(--muted)}
+
+    .hl{list-style:none; padding:0; margin:0; display:grid; gap:12px}
+    .hl li{display:flex; gap:12px; align-items:flex-start}
+    .hl li .dot{flex:0 0 10px; width:10px; height:10px; min-width:10px; min-height:10px; border-radius:50%; background:var(--ink); opacity:.85; margin-top:.55rem}
+    .hl li .text{font-weight:600}
+
+    footer{margin:36px 0 20px; color:var(--muted); font-size:.9rem}
+  </style>
+</head>
+<body>
+  <header class="container" aria-label="Header">
+    <div class="tag" aria-label="Site tag">
+      <span class="tag-dot" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="name-tag">
+        <h1>Drew Sullivan</h1>
+        <p>Executive Leader • New York, NY</p>
+      </div>
+
+      <div class="photo-box">
+        <img src="profile.jpeg" alt="Profile photo of Drew Sullivan" />
+      </div>
+
+      <div class="mission">
+        <div class="kicker">Mission</div>
+        <h1 class="statement">Drive digital product experiences that delight and scale. Navigate complex organizations and solve problems to produce measurable outcomes.</h1>
+        <p class="tagline">Data-Informed Decisions • Cross Functional Leadership • Roadmap Storytelling</p>
+
+        <div class="contact">
+          <a class="icon-btn" href="mailto:contact@drewsullivan.cc" aria-label="Email">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5-8-5V6l8 5 8-5Z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/drewsullivan-" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5ZM.5 8h4V24h-4ZM8 8h3.8v2.2h.06c.53-1 1.84-2.2 3.78-2.2 4.04 0 4.78 2.66 4.78 6.12V24h-4V15.6c0-2.02-.03-4.62-2.82-4.62-2.82 0-3.25 2.2-3.25 4.47V24H8Z" transform="scale(.9) translate(1.4 -1.6)"/></svg>
+          </a>
+          <a class="btn" href="./Drew_Sullivan_Resume.pdf" download>Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="content">
+      <section class="card section-narrow highlights" aria-labelledby="proj-h">
+        <h2 id="proj-h">Featured Highlights</h2>
+        <ul class="hl">
+          <li><span class="dot"></span><span class="text">Built and launched onboarding for self-directed and advisor-assisted accounts, scaling to 1M+ new accounts in 2024 (+20% YoY) across mobile and web.</span></li>
+          <li><span class="dot"></span><span class="text">Align leadership on priorities by translating tradeoffs into actionable roadmaps across business, engineering, design, and risk.</span></li>
+          <li><span class="dot"></span><span class="text">Drive adoption and efficiency on a platform used daily by 2K+ clients.</span></li>
+        </ul>
+      </section>
+
+      <section class="card section-narrow experience" aria-labelledby="exp-h">
+        <h2 id="exp-h">Experience</h2>
+        <div class="timeline">
+          <div class="t-item"><div><span class="t-year">Jan 2022—Present</span> <span class="t-role">ED, Onboarding General Manager</span> • <span class="t-org">J.P. Morgan Wealth Management</span></div></div>
+          <div class="t-item"><div><span class="t-year">Apr 2018—Dec 2021</span> <span class="t-role">VP, Digital Product Owner (Online Investing)</span> • <span class="t-org">J.P. Morgan</span></div></div>
+          <div class="t-item"><div><span class="t-year">2010—Mar 2018</span> <span class="t-role">Analyst/Associate & VP, Strategic Programs</span> • <span class="t-org">JPMorgan Private Bank</span></div></div>
+        </div>
+      </section>
+
+      <section class="edu section-narrow" aria-labelledby="edu-h">
+        <h2 id="edu-h">Education</h2>
+        <div class="edu-list">
+          <div class="edu-item">
+            <span class="edu-year">2006—2010</span>
+            <span class="edu-degree">B.S. Economics, Minor in Finance</span>
+            <span class="edu-org">• Syracuse University</span>
+          </div>
+          <div class="edu-item">
+            <span class="edu-year">Honors</span>
+            <span class="edu-degree">Renée Crown University Honors Program • Magna Cum Laude • Phi Beta Kappa • GPA 3.84</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>© <span id="yr"></span> Drew Sullivan</footer>
+  </main>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
